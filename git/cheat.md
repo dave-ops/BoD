@@ -2,6 +2,11 @@
 
 > [home](../README.md)
 
+## clean
+```
+git clean -f -x -d
+```
+
 ## rename branch
 ```
 git branch -m new-branch-name
