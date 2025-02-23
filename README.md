@@ -1,4 +1,5 @@
 # BoD
 The Book of Dave
 
-## [git](git/cheat.md)
+## table of contents
+- [git](git/cheat.md)
