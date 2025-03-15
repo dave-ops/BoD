@@ -13,11 +13,15 @@ rename/move     | mv  a.txt n.txt
 
 ## npm install gets ⠦Killed
 this is due to insufficient memory, triggering the Out of Memory (OOM) killer,
-
-**add additional swap space for npm installs**
+add additional swap space for npm installs
 ```
 free -h
-sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile && sudo swapon /swapfile
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+export NODE_OPTIONS="--max-old-space-size=4096" # 4GB, adjust as needed
+npm run build
 ```
 
 
@@ -56,7 +60,7 @@ sudo mkdir -p /var/www/html/korg-cc
 sudo chown $USER:$USER /var/www/html/korg-cc
 
 client -> server
-scp -r /home/vm-reverse-proxy-admin/repos/code.orb user@server-ip:/var/www/code-orb
+scp -r ./next user@server-ip:/var/www/code-orb
 
 local -> local
 cp -r /home/root/repos/code-orb /var/www/html/code-orb
